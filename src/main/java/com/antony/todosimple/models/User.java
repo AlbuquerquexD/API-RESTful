@@ -6,12 +6,13 @@ import jakarta.validation.constraints.Size;
 import jakarta.validation.constraints.NotNull;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table()
 public class User {
 
-    //Construtores
+    //Constuctors
     public User() {
     }
 
@@ -42,10 +43,10 @@ public class User {
     @Column(name = "password", length = 60, nullable = false)
     private String password;
 
-//    private List<Task> tasks = new ArrayList<Task>();
+    @OneToMany(mappedBy = "user")
+    private List<Task> tasks = new ArrayList<Task>();
 
-//    getters and setters
-
+//  getters and setters
     public Long getId() {
         return id;
     }

@@ -46,7 +46,16 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Task> tasks = new ArrayList<Task>();
 
-//  getters and setters
+
+    //  getters and setters
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
+    }
+
     public Long getId() {
         return id;
     }

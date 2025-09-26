@@ -8,6 +8,7 @@ import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "task")
+
 public class Task {
 
     //Constuctors

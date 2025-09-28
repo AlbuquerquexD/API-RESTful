@@ -43,7 +43,7 @@ public class UserService {
         return this.userRepository.save(newObj);
     }
 
-    public void delete(long id) {
+    public void delete(Long id) {
         findById(id);
         try {
             this.userRepository.deleteById(id);

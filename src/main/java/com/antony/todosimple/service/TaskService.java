@@ -26,7 +26,7 @@ public class TaskService {
     @Transactional
     public Task create(Task obj){
         User user = this.userService.findById(obj.getUser().getId());
-//        obj.setId(null); erro nessa linha analisar!!
+        obj.setId(null);
         obj.setUser(user);
         obj = this.taskRepository.save(obj);
         return obj;

@@ -31,4 +31,12 @@ public class TaskService {
         obj = this.taskRepository.save(obj);
         return obj;
     }
+
+    @Transactional
+     public Task update(Task obj) {
+        Task newObj = findById(obj.getId());
+        newObj.setDescrition(obj.getDescrition());
+        return this.taskRepository.save(newObj);
+    }
+
 }

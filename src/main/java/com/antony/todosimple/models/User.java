@@ -1,5 +1,6 @@
 package com.antony.todosimple.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
@@ -48,6 +49,7 @@ public class User {
 
 
     //  getters and setters
+    @JsonIgnore
     public List<Task> getTasks() {
         return tasks;
     }

@@ -17,18 +17,34 @@ import java.net.URI;
 public class UserController {
 
     @Autowired
-     private UserService userService;
+    private UserService userService;
 
+    //
     @GetMapping("/{id}")
     public ResponseEntity<User> findById(@PathVariable long id) {
         User Objuser = userService.findById(id);
         return ResponseEntity.ok().body(Objuser);
     }
 
+
+    @PostMapping
     @Validated(User.CreateUser.class)
     public ResponseEntity<Void> create(@Valid @RequestBody User Objuser) {
         this.userService.create(Objuser);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/id").buildAndExpand(Objuser.getId()).toUri();
         return ResponseEntity.created(uri).build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> update(@Valid @RequestBody User Objuser) {
+        this.userService.update(Objuser);
+        return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping("/`{id}")
+    public ResponseEntity<Void> delete(@PathVariable long id) {
+        this.userService.delete(id);
+        return ResponseEntity.noContent().build();
+
     }
 }
